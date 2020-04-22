@@ -22,8 +22,8 @@ for row in cursor.execute(sql): # Функция записи в столб пе
 #
 #
 # host = '192.168.153.129'
-# user = 'sb_user'
-# secret = '1234'
+# user = user_name
+# secret = secret
 # port = 22
 #
 # ssh = paramiko.SSHClient()
