@@ -1,0 +1,19 @@
+2023-02-27 18:53:26,288 p=8592 u=student n=ansible | c8-server01 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-02-27 18:53:56,767 p=8642 u=student n=ansible | c8-server01 | CHANGED | rc=0 >>
+   Static hostname: c8-server01
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: c3caeabf58eb4315a9374f9d973b7dff
+           Boot ID: 971bbe933a504baeab4ae8879ef53f3a
+    Virtualization: microsoft
+  Operating System: CentOS Stream 8
+       CPE OS Name: cpe:/o:centos:centos:8
+            Kernel: Linux 4.18.0-310.el8.x86_64
+      Architecture: x86-64
+

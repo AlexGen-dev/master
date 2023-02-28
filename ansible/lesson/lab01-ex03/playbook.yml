@@ -1,0 +1,7 @@
+---
+- name: ANSBILE SIMPLE PLAYBOOK
+  hosts: all
+  tasks:
+    - name: PING HOSTS
+      ping:
+...

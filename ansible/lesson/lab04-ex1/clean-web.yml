@@ -1,0 +1,17 @@
+---
+- name: WEB SERVER ELIMINATION
+  hosts: web
+  tasks:
+
+    - name: REMOVE WEB SERVER
+      # Удаляем пакет nginx
+      command: yum remove nginx -y
+
+    - name: BLOCK ACCESS TO WEB SERVER
+      # Закрываем межсетевой экран для подключений по http
+      command: firewall-cmd --remove-service=http --permanent
+
+    - name: RELOAD FIREWALL
+      # Перегружаем межсетевой экран
+      command: firewall-cmd --complete-reload
+...

@@ -1,0 +1,22 @@
+---
+- name: INSTALL NGINX
+  hosts: centos_slave
+  tasks:
+    
+    - name: INSTALL NGINX
+      yum:
+        name: nginx
+        state: latest
+
+    - name: START NGINX
+      systemd:
+        name: nginx
+        state: started
+        enabled: true    
+
+    - name: ALLOW ACCESS TO WEB SERVER
+      command: firewall-cmd --add-service=http --permanent
+
+    - name: RELOAD FIREWALL
+      command: firewall-cmd --complete-reload
+...

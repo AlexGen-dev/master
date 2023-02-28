@@ -1,0 +1,48 @@
+---
+- name: SERVER1 WEB DATA SETUP
+  hosts: c8-server01
+  tasks:    
+    - name: CREATE WEB DATA
+      copy:
+        # Создать, файл если он не существует для вставки контента из content
+        dest: /usr/share/nginx/html/data.html
+        # Вставить этот контент в файл dest data.html
+        content: "<h2>c8-server01</h2>\n"
+
+- name: SERVER2 WEB DATA SETUP
+  hosts: c8-server02
+  tasks:
+
+    - name: CREARE WEB DATA
+      copy:
+        # Создать, файл если он не существует для вставки контента из content
+        dest: /usr/share/nginx/html/data.html
+        # Вставить этот контент в файл dest data.html
+        content: "<h2>c8-server02</h2>\n"
+
+- name: WEB CONTENT SETUP
+  hosts: web
+  tasks:
+
+    - name: SETUP WEB DATA PERMISSIONS
+      file:
+        # Путь до файла который необходимо создать
+        path: /usr/share/nginx/html/data.html
+        # Указываем, что его необходимо создать
+        state: touch
+        # Владелец файла data.html
+        owner: nginx
+        # Группа файла data.html
+        group: nginx
+        # Права на файл r-- r-- r---
+        mode: '0444'
+
+    - name: SETUP SIMBOLIC LINK TO DATA
+      file:
+        # Указываем файл из которого будет создана символьная ссылка index.html
+        src: /usr/share/nginx/html/data.html
+        # Создаем символьную ссылку и называем ее index.html
+        dest: /usr/share/nginx/html/index.html
+        # Указываем, что это символьная ссылка
+        state: link
+...

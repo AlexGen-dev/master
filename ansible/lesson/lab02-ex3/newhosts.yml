@@ -1,0 +1,8 @@
+all:
+  children:
+    newname:
+      hosts:
+        c8-server0[1:10] 
+    newip:
+      hosts:
+        192.168.05[0:9]

@@ -1,0 +1,14 @@
+---
+- name: WEB SERVER SETUP
+  hosts: web
+  user: root
+  tasks:
+    - name: INSTALL WEB SERVER
+      command: yum install httpd -y
+    - name: ENABLE & START WEB SERVER
+      command: systemctl enable httpd --now
+    - name: ALLOW ACCESS TO WEB SERVER
+      command: firewall-cmd --add-service=http --permanent
+    - name: RELOAD FIREWALL
+      command: firewall-cmd --complete-reload
+...

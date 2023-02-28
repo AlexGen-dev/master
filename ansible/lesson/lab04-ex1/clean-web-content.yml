@@ -1,0 +1,47 @@
+---
+- name: WEB CONTENT CLEANUP
+  hosts: web
+  tasks:
+
+    - name: REMOVE 404.html
+      file:
+        # Путь до файла
+        path: /usr/share/nginx/html/404.html
+        # Удалить файл из path
+        state: absent
+
+    - name: REMOVE 50x.html
+      file:
+        # Путь до файла
+        path: /usr/share/nginx/html/50x.html
+        # Удалить файл из path
+        state: absent
+
+    - name: REMOVE index.html
+      file:
+        # Путь до файла
+        path: /usr/share/nginx/html/index.html
+        # Удалить файл из path
+        state: absent
+
+    - name: REMOVE nginx-logo.png
+      file:
+        # Путь до файла
+        path: /usr/share/nginx/html/nginx-logo.png
+        # Удалить файл из path
+        state: absent
+
+    - name: REMOVE poweredby.png
+      file:
+        # Путь до файла
+        path: /usr/share/nginx/html/poweredby.png
+        # Удалить файл из path
+        state: absent
+
+    - name: REMOVE data.html
+      file:
+        # Путь до файла
+        path: /ust/share/nginx/html/data.html
+        # Удалить файл из path
+        state: absent
+...

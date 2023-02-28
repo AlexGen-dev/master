@@ -1,0 +1,5 @@
+all:
+  children:
+    web:
+      hosts:
+        c8-server0[1:2]:

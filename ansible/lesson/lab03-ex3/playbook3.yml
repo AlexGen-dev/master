@@ -1,0 +1,13 @@
+---
+- name: LAB03 EXERCISE01 - TROUBLESHOOTING3-1
+  hosts: c8-server01
+  tasks:
+    - name: PING SERVER 1
+      ping:
+
+- name: LAB03 EXERCISE01 - TROUBLESHOOTING3-2
+  hosts: c8-server02
+  tasks:
+    - name: PING SERVER 2
+      ping:
+...

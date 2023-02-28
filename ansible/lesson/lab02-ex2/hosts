@@ -1,0 +1,16 @@
+[srv_tui]
+c8-server01
+
+[srv_gui]
+c8-server02
+
+[cli]
+192.168.0.52
+
+[srv:children]
+srv_tui
+srv_gui
+
+[ll:children]
+srv
+cli

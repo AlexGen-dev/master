@@ -1,0 +1,47 @@
+https://drive.google.com/file/d/1IHPtpgookIUjlzAQvYNWmTzK5joDlGC2/edit
+Учебник
+ansible
+RDP client
+Якимов Александр Геннадьевич
+=========================
+edulab.softlinegroup.com
+TS03-EDUMSK01\L16
+Ll-!O%"&2O
+=============
+L16
+login: student
+password: no
+=============
+Hyper-V
+login: student\root
+password:Pa$$w0rd
+
+===
+vimtutor ru
+===
+*********
+*ansible*
+*********
+ansbile-doc file - документация
+ansible-playbook playbook.yml --syntax-check - проверка синтаксиса плейбука
+ansible-playbook playbook.yml --check - проверка плейбука на исполняемой ноде
+ansbile-config view - проверить конфигурацию ansible.cfg по умолчанию
+ansible --list-hosts all - проверить все хосты в inventory (либо вместо all группу)
+ansible --list-hosts ungrouped - проверить все хосты в inventory не в группах
+ansible -m ping all - исполнить пинг на все хосты без модуля по умолчанию
+ansbile -m command -a 'df -h' all - исполнить комманду на все хосты без модуля по умолчанию
+ansible-playbook playbook.yml
+
+---
+ansible --list-hosts new[-1] - вывести последний хост из группы new
+ansible --list-hosts new[0:4] - вывести первые 4 хоста из группы new
+ansbile --list-hosts new ~^192.*2$ - вывести все хосты начинающиеся на 192 и заканчивающиеся на 2
+===
+
+******
+*bash*
+******
+cat /etc/resolve.conf - информация о DNS
+for HOST in {student,root}@{c8-server0{1,2},c7-server01}; do ssh-copy-id $HOST; done - выполнить раскладку ключей по серверам
+for HOST in root@{c8-server0{1,2},c7-server01}; do ssh $HOST 'echo "$(hostname):"; grep ^student /etc/sudoers'; done - выполнить команду
+for HOST in root@{c8-server0{1,2},c7-server01}; do ssh $HOST 'echo "student ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/student' > ; done - добавить конфигурацию в sudoers

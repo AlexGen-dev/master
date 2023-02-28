@@ -1,0 +1,21 @@
+---
+- name: WEB SERVER SETUP
+  hosts: web
+  tasks:
+
+    - name: INSTALL WEB SERVER
+      # Устанавливаем nginx через yum
+      command: yum install nginx -y
+
+    - name: ENABLE & START WEB SERVER
+      # Добавляем nginx в автозапуск
+      command: systemctl enable nginx --now
+
+    - name: ALLOW ACCESS TO WEB SERVER
+      # Открываем межсетевой экран для подключений по http
+      command: firewall-cmd --add-service=http --permanent
+
+    - name: RELOAD FIREWALL
+      # Выполняем перезагрузку межсетевого экрана
+      command: firewall-cmd --complete-reload
+...

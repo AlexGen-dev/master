@@ -1,0 +1,7 @@
+---
+- name: LAB03 EXERCISE01 - TROUBLESHOOTING1
+  hosts: servers
+  tasks:
+    - name: PING SERVERS
+      ping:
+...
