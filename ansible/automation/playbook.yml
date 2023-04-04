@@ -15,8 +15,16 @@
         enabled: true    
 
     - name: ALLOW ACCESS TO WEB SERVER
-      command: firewall-cmd --add-service=http --permanent
+      firewalld:
+        port: 9080/tcp
+        state: enabled
+        immediate: yes
+        permanent: yes
 
-    - name: RELOAD FIREWALL
-      command: firewall-cmd --complete-reload
+    - name: DELETE DEFAULT NGINX.CONF
+      file:
+        path: /etc/nginx/nginx.conf
+        state: absent
+
+- import_playbook: nginx_content.yml
 ...
